@@ -14,7 +14,20 @@
 		924B0054236942F0004EC955 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 924B0053236942F0004EC955 /* Assets.xcassets */; };
 		924B0057236942F0004EC955 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924B0055236942F0004EC955 /* LaunchScreen.storyboard */; };
 		924B006023694445004EC955 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B005F23694445004EC955 /* Location.swift */; };
+		924B0062236946C7004EC955 /* LocationRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B0061236946C6004EC955 /* LocationRetriever.swift */; };
+		924B00A523694E85004EC955 /* GeoMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00A423694E85004EC955 /* GeoMappingTests.swift */; };
+		924B00AD23695009004EC955 /* LocationDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00AC23695009004EC955 /* LocationDataSourceTest.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		924B00A723694E85004EC955 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 924B003F236942EF004EC955 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 924B0046236942EF004EC955;
+			remoteInfo = GeoMapping;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		924B0047236942EF004EC955 /* GeoMapping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoMapping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +39,22 @@
 		924B0056236942F0004EC955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		924B0058236942F0004EC955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924B005F23694445004EC955 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		924B0061236946C6004EC955 /* LocationRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRetriever.swift; sourceTree = "<group>"; };
+		924B00A223694E85004EC955 /* GeoMappingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoMappingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		924B00A423694E85004EC955 /* GeoMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoMappingTests.swift; sourceTree = "<group>"; };
+		924B00A623694E85004EC955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		924B00AC23695009004EC955 /* LocationDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataSourceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		924B0044236942EF004EC955 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		924B009F23694E85004EC955 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				924B0049236942EF004EC955 /* GeoMapping */,
+				924B00A323694E85004EC955 /* GeoMappingTests */,
 				924B0048236942EF004EC955 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				924B0047236942EF004EC955 /* GeoMapping.app */,
+				924B00A223694E85004EC955 /* GeoMappingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,9 +100,28 @@
 		924B005E2369443A004EC955 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				924B006323694D4C004EC955 /* Test */,
 				924B005F23694445004EC955 /* Location.swift */,
+				924B0061236946C6004EC955 /* LocationRetriever.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		924B006323694D4C004EC955 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				924B00AC23695009004EC955 /* LocationDataSourceTest.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		924B00A323694E85004EC955 /* GeoMappingTests */ = {
+			isa = PBXGroup;
+			children = (
+				924B00A423694E85004EC955 /* GeoMappingTests.swift */,
+				924B00A623694E85004EC955 /* Info.plist */,
+			);
+			path = GeoMappingTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +144,24 @@
 			productReference = 924B0047236942EF004EC955 /* GeoMapping.app */;
 			productType = "com.apple.product-type.application";
 		};
+		924B00A123694E85004EC955 /* GeoMappingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 924B00A923694E85004EC955 /* Build configuration list for PBXNativeTarget "GeoMappingTests" */;
+			buildPhases = (
+				924B009E23694E85004EC955 /* Sources */,
+				924B009F23694E85004EC955 /* Frameworks */,
+				924B00A023694E85004EC955 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				924B00A823694E85004EC955 /* PBXTargetDependency */,
+			);
+			name = GeoMappingTests;
+			productName = GeoMappingTests;
+			productReference = 924B00A223694E85004EC955 /* GeoMappingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -110,6 +174,10 @@
 				TargetAttributes = {
 					924B0046236942EF004EC955 = {
 						CreatedOnToolsVersion = 11.1;
+					};
+					924B00A123694E85004EC955 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 924B0046236942EF004EC955;
 					};
 				};
 			};
@@ -127,6 +195,7 @@
 			projectRoot = "";
 			targets = (
 				924B0046236942EF004EC955 /* GeoMapping */,
+				924B00A123694E85004EC955 /* GeoMappingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -142,6 +211,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		924B00A023694E85004EC955 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -150,13 +226,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				924B004F236942EF004EC955 /* ViewController.swift in Sources */,
+				924B0062236946C7004EC955 /* LocationRetriever.swift in Sources */,
 				924B004B236942EF004EC955 /* AppDelegate.swift in Sources */,
 				924B006023694445004EC955 /* Location.swift in Sources */,
 				924B004D236942EF004EC955 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		924B009E23694E85004EC955 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				924B00AD23695009004EC955 /* LocationDataSourceTest.swift in Sources */,
+				924B00A523694E85004EC955 /* GeoMappingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		924B00A823694E85004EC955 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 924B0046236942EF004EC955 /* GeoMapping */;
+			targetProxy = 924B00A723694E85004EC955 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		924B0050236942EF004EC955 /* Main.storyboard */ = {
@@ -328,6 +422,46 @@
 			};
 			name = Release;
 		};
+		924B00AA23694E85004EC955 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BC6278S7RY;
+				INFOPLIST_FILE = GeoMappingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mediumTall.GeoMappingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeoMapping.app/GeoMapping";
+			};
+			name = Debug;
+		};
+		924B00AB23694E85004EC955 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BC6278S7RY;
+				INFOPLIST_FILE = GeoMappingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mediumTall.GeoMappingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeoMapping.app/GeoMapping";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -345,6 +479,15 @@
 			buildConfigurations = (
 				924B005C236942F0004EC955 /* Debug */,
 				924B005D236942F0004EC955 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		924B00A923694E85004EC955 /* Build configuration list for PBXNativeTarget "GeoMappingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				924B00AA23694E85004EC955 /* Debug */,
+				924B00AB23694E85004EC955 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
