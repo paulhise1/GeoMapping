@@ -7,6 +7,7 @@ class MapViewController: UIViewController {
         static let initialLocation = CLLocation(latitude: 47.650467, longitude: -122.349935)
 
         static let initialRegionRadius: CLLocationDistance = 500
+        static let showDetailViewSegue = "ShowDetailViewSegue"
     }
     
     @IBOutlet weak var mapView: MKMapView! {
@@ -22,9 +23,13 @@ class MapViewController: UIViewController {
                                     Location(id: 4, title: "four", message: "4!!!", latitude: 47.65063, longitude: -122.35118)
     ]
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
     override func viewDidAppear(_ animated: Bool) {
         centerMapOnLocation(location: Constant.initialLocation, regionRadius: Constant.initialRegionRadius)
         createPinsAt(locations: stubbedLocations)
@@ -40,10 +45,15 @@ class MapViewController: UIViewController {
         var annotations = [MKPointAnnotation]()
         for location in locations {
             let annotation = MKPointAnnotation()
+            annotation.title = String(describing: location.id)
             annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             annotations.append(annotation)
         }
         mapView.addAnnotations(annotations)
+    }
+    
+    func showDetailViewOfPin(id: String) {
+        performSegue(withIdentifier: Constant.showDetailViewSegue, sender: self)
     }
 }
 
@@ -59,6 +69,11 @@ extension MapViewController: MKMapViewDelegate {
                 pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdent)
             }
             return pinView;
-        
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotationTitle = view.annotation?.title else { return }
+        guard let id = annotationTitle else { return }
+        showDetailViewOfPin(id: id)
     }
 }
