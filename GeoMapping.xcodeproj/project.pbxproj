@@ -18,8 +18,7 @@
 		924B00AD23695009004EC955 /* LocationDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00AC23695009004EC955 /* LocationDataSourceTest.swift */; };
 		924B00B1236956B0004EC955 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		924B00B5236AA48B004EC955 /* LocationAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00B3236AA025004EC955 /* LocationAPIError.swift */; };
-		924B00B8236AB514004EC955 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924B00B7236AB514004EC955 /* DetailView.xib */; };
-		924B00BA236AB600004EC955 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00B9236AB600004EC955 /* DetailView.swift */; };
+		924B00BA236AB600004EC955 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00B9236AB600004EC955 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +46,7 @@
 		924B00A623694E85004EC955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924B00AC23695009004EC955 /* LocationDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataSourceTest.swift; sourceTree = "<group>"; };
 		924B00B3236AA025004EC955 /* LocationAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAPIError.swift; sourceTree = "<group>"; };
-		924B00B7236AB514004EC955 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
-		924B00B9236AB600004EC955 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		924B00B9236AB600004EC955 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +139,7 @@
 		924B00B6236AB501004EC955 /* Detail View */ = {
 			isa = PBXGroup;
 			children = (
-				924B00B7236AB514004EC955 /* DetailView.xib */,
-				924B00B9236AB600004EC955 /* DetailView.swift */,
+				924B00B9236AB600004EC955 /* DetailViewController.swift */,
 			);
 			path = "Detail View";
 			sourceTree = "<group>";
@@ -229,7 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				924B0057236942F0004EC955 /* LaunchScreen.storyboard in Resources */,
-				924B00B8236AB514004EC955 /* DetailView.xib in Resources */,
 				924B0054236942F0004EC955 /* Assets.xcassets in Resources */,
 				924B0052236942EF004EC955 /* Main.storyboard in Resources */,
 			);
@@ -250,7 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				924B0062236946C7004EC955 /* LocationRetriever.swift in Sources */,
-				924B00BA236AB600004EC955 /* DetailView.swift in Sources */,
+				924B00BA236AB600004EC955 /* DetailViewController.swift in Sources */,
 				924B004B236942EF004EC955 /* AppDelegate.swift in Sources */,
 				924B006023694445004EC955 /* Location.swift in Sources */,
 				924B004D236942EF004EC955 /* SceneDelegate.swift in Sources */,
