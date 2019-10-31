@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		924B004B236942EF004EC955 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B004A236942EF004EC955 /* AppDelegate.swift */; };
 		924B004D236942EF004EC955 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B004C236942EF004EC955 /* SceneDelegate.swift */; };
-		924B004F236942EF004EC955 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B004E236942EF004EC955 /* ViewController.swift */; };
 		924B0052236942EF004EC955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924B0050236942EF004EC955 /* Main.storyboard */; };
 		924B0054236942F0004EC955 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 924B0053236942F0004EC955 /* Assets.xcassets */; };
 		924B0057236942F0004EC955 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 924B0055236942F0004EC955 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,8 @@
 		924B00A523694E85004EC955 /* GeoMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00A423694E85004EC955 /* GeoMappingTests.swift */; };
 		924B00AD23695009004EC955 /* LocationDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00AC23695009004EC955 /* LocationDataSourceTest.swift */; };
 		924B00B4236AA025004EC955 /* LocationAPIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00B3236AA025004EC955 /* LocationAPIErrors.swift */; };
+		924B00AD23695009004EC955 /* LocationRetrieverTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00AC23695009004EC955 /* LocationRetrieverTest.swift */; };
+		924B00B1236956B0004EC955 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00AF23695612004EC955 /* TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +35,6 @@
 		924B0047236942EF004EC955 /* GeoMapping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoMapping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		924B004A236942EF004EC955 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		924B004C236942EF004EC955 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		924B004E236942EF004EC955 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		924B0051236942EF004EC955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		924B0053236942F0004EC955 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		924B0056236942F0004EC955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,6 +46,9 @@
 		924B00A623694E85004EC955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924B00AC23695009004EC955 /* LocationDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataSourceTest.swift; sourceTree = "<group>"; };
 		924B00B3236AA025004EC955 /* LocationAPIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAPIErrors.swift; sourceTree = "<group>"; };
+		924B00AC23695009004EC955 /* LocationRetrieverTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRetrieverTest.swift; sourceTree = "<group>"; };
+		924B00AF23695612004EC955 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +94,6 @@
 				924B005E2369443A004EC955 /* Location */,
 				924B004A236942EF004EC955 /* AppDelegate.swift */,
 				924B004C236942EF004EC955 /* SceneDelegate.swift */,
-				924B004E236942EF004EC955 /* ViewController.swift */,
 				924B0050236942EF004EC955 /* Main.storyboard */,
 				924B0053236942F0004EC955 /* Assets.xcassets */,
 				924B0055236942F0004EC955 /* LaunchScreen.storyboard */,
@@ -113,7 +115,8 @@
 		924B006323694D4C004EC955 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				924B00AC23695009004EC955 /* LocationDataSourceTest.swift */,
+				924B00AC23695009004EC955 /* LocationRetrieverTest.swift */,
+				924B00AF23695612004EC955 /* TestHelpers.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -236,7 +239,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				924B004F236942EF004EC955 /* ViewController.swift in Sources */,
 				924B0062236946C7004EC955 /* LocationRetriever.swift in Sources */,
 				924B00B4236AA025004EC955 /* LocationAPIErrors.swift in Sources */,
 				924B004B236942EF004EC955 /* AppDelegate.swift in Sources */,
@@ -249,8 +251,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				924B00AD23695009004EC955 /* LocationDataSourceTest.swift in Sources */,
+				924B00AD23695009004EC955 /* LocationRetrieverTest.swift in Sources */,
 				924B00A523694E85004EC955 /* GeoMappingTests.swift in Sources */,
+				924B00B1236956B0004EC955 /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
