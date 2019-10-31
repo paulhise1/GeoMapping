@@ -9,7 +9,7 @@ class DetailViewController: UIViewController {
     func configure(title: String, message: String, latitude: String, longitude: String) {
         titleLabel.text = title
         messageLabel.text = message
-        LatitudeLabel.text = latitude
+        latitudeLabel.text = latitude
         longitudeLabel.text = longitude
     }
 }

@@ -19,6 +19,8 @@
 		924B00B1236956B0004EC955 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		924B00B5236AA48B004EC955 /* LocationAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00B3236AA025004EC955 /* LocationAPIError.swift */; };
 		924B00BA236AB600004EC955 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00B9236AB600004EC955 /* DetailViewController.swift */; };
+		929E9E27236ABB2300CB8B3A /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E9E26236ABB2300CB8B3A /* MapViewModel.swift */; };
+		929E9E29236ABCA700CB8B3A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929E9E28236ABCA700CB8B3A /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		924B00AC23695009004EC955 /* LocationDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataSourceTest.swift; sourceTree = "<group>"; };
 		924B00B3236AA025004EC955 /* LocationAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAPIError.swift; sourceTree = "<group>"; };
 		924B00B9236AB600004EC955 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		929E9E26236ABB2300CB8B3A /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		929E9E28236ABCA700CB8B3A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 		924B0049236942EF004EC955 /* GeoMapping */ = {
 			isa = PBXGroup;
 			children = (
+				929E9E25236ABB0400CB8B3A /* Map View */,
 				924B00B6236AB501004EC955 /* Detail View */,
 				924B00B2236A9FEB004EC955 /* Services */,
 				924B005E2369443A004EC955 /* Location */,
@@ -142,6 +147,15 @@
 				924B00B9236AB600004EC955 /* DetailViewController.swift */,
 			);
 			path = "Detail View";
+			sourceTree = "<group>";
+		};
+		929E9E25236ABB0400CB8B3A /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+				929E9E26236ABB2300CB8B3A /* MapViewModel.swift */,
+				929E9E28236ABCA700CB8B3A /* MapViewController.swift */,
+			);
+			path = "Map View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,8 +263,10 @@
 				924B00BA236AB600004EC955 /* DetailViewController.swift in Sources */,
 				924B004B236942EF004EC955 /* AppDelegate.swift in Sources */,
 				924B006023694445004EC955 /* Location.swift in Sources */,
+				929E9E27236ABB2300CB8B3A /* MapViewModel.swift in Sources */,
 				924B004D236942EF004EC955 /* SceneDelegate.swift in Sources */,
 				924B00B5236AA48B004EC955 /* LocationAPIError.swift in Sources */,
+				929E9E29236ABCA700CB8B3A /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
