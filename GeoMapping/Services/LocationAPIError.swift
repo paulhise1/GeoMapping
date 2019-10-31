@@ -1,7 +1,5 @@
 import Foundation
 
-import Foundation
-
 enum LocationAPIError: Error, LocalizedError {
     case urlError(URLError)
     case responseError(Int)

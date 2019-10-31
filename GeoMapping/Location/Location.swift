@@ -1,8 +1,13 @@
 import Foundation
-import CoreLocation
 
-struct Location {
+struct Location: Codable, Equatable, Hashable {
+    let id: Int
     let title: String
     let message: String
-    let clLocation: CLLocation
+    let latitude: Double
+    let longitude: Double
+}
+
+struct LocationsResponse: Codable {
+    let waypoints: [Location]
 }
