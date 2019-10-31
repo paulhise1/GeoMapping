@@ -17,6 +17,7 @@
 		924B0062236946C7004EC955 /* LocationRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B0061236946C6004EC955 /* LocationRetriever.swift */; };
 		924B00A523694E85004EC955 /* GeoMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00A423694E85004EC955 /* GeoMappingTests.swift */; };
 		924B00AD23695009004EC955 /* LocationDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00AC23695009004EC955 /* LocationDataSourceTest.swift */; };
+		924B00B4236AA025004EC955 /* LocationAPIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B00B3236AA025004EC955 /* LocationAPIErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		924B00A423694E85004EC955 /* GeoMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoMappingTests.swift; sourceTree = "<group>"; };
 		924B00A623694E85004EC955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		924B00AC23695009004EC955 /* LocationDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataSourceTest.swift; sourceTree = "<group>"; };
+		924B00B3236AA025004EC955 /* LocationAPIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAPIErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		924B0049236942EF004EC955 /* GeoMapping */ = {
 			isa = PBXGroup;
 			children = (
+				924B00B2236A9FEB004EC955 /* Services */,
 				924B005E2369443A004EC955 /* Location */,
 				924B004A236942EF004EC955 /* AppDelegate.swift */,
 				924B004C236942EF004EC955 /* SceneDelegate.swift */,
@@ -122,6 +125,14 @@
 				924B00A623694E85004EC955 /* Info.plist */,
 			);
 			path = GeoMappingTests;
+			sourceTree = "<group>";
+		};
+		924B00B2236A9FEB004EC955 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				924B00B3236AA025004EC955 /* LocationAPIErrors.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +238,7 @@
 			files = (
 				924B004F236942EF004EC955 /* ViewController.swift in Sources */,
 				924B0062236946C7004EC955 /* LocationRetriever.swift in Sources */,
+				924B00B4236AA025004EC955 /* LocationAPIErrors.swift in Sources */,
 				924B004B236942EF004EC955 /* AppDelegate.swift in Sources */,
 				924B006023694445004EC955 /* Location.swift in Sources */,
 				924B004D236942EF004EC955 /* SceneDelegate.swift in Sources */,
