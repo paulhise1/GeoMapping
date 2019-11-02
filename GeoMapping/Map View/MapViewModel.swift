@@ -14,6 +14,7 @@ class MapViewModel {
         static let detailRegionRadius: CLLocationDistance = 150
         static let showDetailViewSegue = "ShowDetailViewSegue"
         static let locationsEndpointString = "https://codetest.geocaching.com/destinations"
+        static let detailViewControllerColor = UIColor(red: 4/255.0, green: 114/255.0, blue: 77/255.0, alpha: 1)
     }
     
     weak var delegate: MapViewModelDelegate?
@@ -34,13 +35,9 @@ class MapViewModel {
             delegate?.createPinsFromAnnotations(annotationsFromLocations(locations))
         }
     }
-    private var locationImages: [Int: UIImage]?
+    private let imageURLs: [Int: URL?] = LocationImageURLDataStore.urls
     
     public let detailViewSegueID = Constant.showDetailViewSegue
-    
-    init() {
-        //fetchLocationImages()
-    }
     
     public func mapViewDidAppear() {
         centerMapAtCLLocation(Constant.initialLocation, with: Constant.initialRegionRadius)
@@ -87,9 +84,13 @@ class MapViewModel {
     
     private func configureDetailViewWithLocation(_ detailViewController: DetailViewController, _ location: Location) {
         let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
-        let locationImage = imageForLocation(locationID: location.id)
+        let imageURL = imageURLForLocation(locationID: location.id)
         
-        detailViewController.configure(title: location.title, message: location.message, latitude: String(describing: location.latitude), longitude: String(describing: location.longitude), coordinateRegion: coordinateRegionFromclLocation(clLocation, with: Constant.detailRegionRadius), image: locationImage)
+        detailViewController.configure(title: location.title, message: location.message, latitude: String(describing: location.latitude), longitude: String(describing: location.longitude), coordinateRegion: coordinateRegionFromclLocation(clLocation, with: Constant.detailRegionRadius), imageURL: imageURL, navigationBarIsHidden: false, detailVeiwColor: Constant.detailViewControllerColor)
+    }
+    
+    private func imageURLForLocation(locationID: Int) -> URL? {
+        return imageURLs[locationID] ?? nil
     }
     
     private func locationForPin(id: String) -> Location? {
@@ -100,11 +101,6 @@ class MapViewModel {
     private func coordinateRegionFromclLocation(_ clLocation: CLLocation, with regionRadius: CLLocationDistance) -> MKCoordinateRegion {
         return MKCoordinateRegion(center: clLocation.coordinate,
         latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-    }
-    
-    private func imageForLocation(locationID: Int) -> UIImage? {
-        guard let locationImages = locationImages else { return nil }
-        return locationImages[locationID]
     }
     
     private func handleError(apiError: LocationAPIError) {
