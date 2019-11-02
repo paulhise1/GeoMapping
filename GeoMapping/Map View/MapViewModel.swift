@@ -11,6 +11,7 @@ class MapViewModel {
     private struct Constant {
         static let initialLocation = CLLocation(latitude: 47.650467, longitude: -122.349935)
         static let initialRegionRadius: CLLocationDistance = 500
+        static let detailRegionRadius: CLLocationDistance = 150
         static let showDetailViewSegue = "ShowDetailViewSegue"
         static let locationsEndpointString = "https://codetest.geocaching.com/destinations"
     }
@@ -47,10 +48,7 @@ class MapViewModel {
     }
     
     private func centerMapAtCLLocation(_ clLocation: CLLocation, with regionRadius: CLLocationDistance) {
-        let coordinateRegion = MKCoordinateRegion(center: clLocation.coordinate,
-        latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        
-        delegate?.setCoordinateRegionOnMap(coordinateRegion)
+        delegate?.setCoordinateRegionOnMap(coordinateRegionFromclLocation(clLocation, with: regionRadius))
     }
     
     public func setSelectedLocationFromLocationID(_ locationID: String) {
@@ -83,12 +81,19 @@ class MapViewModel {
     }
     
     private func configureDetailViewWithLocation(_ detailViewController: DetailViewController, _ location: Location) {
-        detailViewController.configure(title: location.title, message: location.message, latitude: String(describing: location.latitude), longitude: String(describing: location.longitude))
+        let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        
+        detailViewController.configure(title: location.title, message: location.message, latitude: String(describing: location.latitude), longitude: String(describing: location.longitude), coordinateRegion: coordinateRegionFromclLocation(clLocation, with: Constant.detailRegionRadius))
     }
     
     private func locationForPin(id: String) -> Location? {
         guard let intID = Int(id) else { return nil }
         return locations?.first(where: {$0.id == intID})
+    }
+    
+    private func coordinateRegionFromclLocation(_ clLocation: CLLocation, with regionRadius: CLLocationDistance) -> MKCoordinateRegion {
+        return MKCoordinateRegion(center: clLocation.coordinate,
+        latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
     }
     
     private func handleError(apiError: LocationAPIError) {
