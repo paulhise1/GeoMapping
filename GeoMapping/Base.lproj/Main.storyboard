@@ -60,10 +60,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="Pf0-6V-0Fm"/>
                     <connections>
-                        <outlet property="latitudeLabel" destination="XG2-Et-rCr" id="Kj6-5Q-3rm"/>
-                        <outlet property="longitudeLabel" destination="Ydr-SX-fDj" id="TEC-Gp-2NO"/>
-                        <outlet property="messageLabel" destination="Kic-rx-Kix" id="vR3-vt-eAS"/>
-                        <outlet property="titleLabel" destination="bHr-C3-2lO" id="aGK-mG-9sb"/>
+                        <outlet property="latitudeLabel" destination="XG2-Et-rCr" id="YE3-8V-RuK"/>
+                        <outlet property="longitudeLabel" destination="Ydr-SX-fDj" id="brg-Lo-vlP"/>
+                        <outlet property="messageLabel" destination="Kic-rx-Kix" id="Qoq-el-Yed"/>
+                        <outlet property="titleLabel" destination="bHr-C3-2lO" id="fMa-kd-VlF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1T-va-qhh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -110,7 +110,7 @@
                     <navigationItem key="navigationItem" id="mfl-Br-ngf"/>
                     <connections>
                         <outlet property="mapView" destination="pMW-eq-mT4" id="A49-hq-wAc"/>
-                        <segue destination="1Lg-lY-ifj" kind="show" identifier="ShowDetailViewSegue" id="Cga-f9-ijk"/>
+                        <segue destination="1Lg-lY-ifj" kind="show" identifier="ShowDetailViewSegue" destinationCreationSelector="showDetailViewSegue:" id="Cga-f9-ijk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixr-LN-1Zq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
