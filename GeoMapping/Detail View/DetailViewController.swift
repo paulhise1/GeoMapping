@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
         delegate?.detailViewDidLoad()
     }
     
-    func configure(title: String, message: String, latitude: String, longitude: String, coordinateRegion: MKCoordinateRegion) {
+    func configure(title: String, message: String, latitude: String, longitude: String, coordinateRegion: MKCoordinateRegion, image: UIImage?) {
         titleLabel.text = title
         messageLabel.text = message
         latitudeLabel.text = latitude
@@ -32,5 +32,10 @@ class DetailViewController: UIViewController {
         
         detailMapView.setRegion(coordinateRegion, animated: false)
         detailMapView.isUserInteractionEnabled = false
+        
+        guard let image = image else {
+            detailImageView.isHidden = true
+            return }
+        detailImageView.image = image
     }
 }

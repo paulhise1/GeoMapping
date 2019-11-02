@@ -34,8 +34,13 @@ class MapViewModel {
             delegate?.createPinsFromAnnotations(annotationsFromLocations(locations))
         }
     }
+    private var locationImages: [Int: UIImage]?
     
     public let detailViewSegueID = Constant.showDetailViewSegue
+    
+    init() {
+        //fetchLocationImages()
+    }
     
     public func mapViewDidAppear() {
         centerMapAtCLLocation(Constant.initialLocation, with: Constant.initialRegionRadius)
@@ -82,8 +87,9 @@ class MapViewModel {
     
     private func configureDetailViewWithLocation(_ detailViewController: DetailViewController, _ location: Location) {
         let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        let locationImage = imageForLocation(locationID: location.id)
         
-        detailViewController.configure(title: location.title, message: location.message, latitude: String(describing: location.latitude), longitude: String(describing: location.longitude), coordinateRegion: coordinateRegionFromclLocation(clLocation, with: Constant.detailRegionRadius))
+        detailViewController.configure(title: location.title, message: location.message, latitude: String(describing: location.latitude), longitude: String(describing: location.longitude), coordinateRegion: coordinateRegionFromclLocation(clLocation, with: Constant.detailRegionRadius), image: locationImage)
     }
     
     private func locationForPin(id: String) -> Location? {
@@ -94,6 +100,11 @@ class MapViewModel {
     private func coordinateRegionFromclLocation(_ clLocation: CLLocation, with regionRadius: CLLocationDistance) -> MKCoordinateRegion {
         return MKCoordinateRegion(center: clLocation.coordinate,
         latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+    }
+    
+    private func imageForLocation(locationID: Int) -> UIImage? {
+        guard let locationImages = locationImages else { return nil }
+        return locationImages[locationID]
     }
     
     private func handleError(apiError: LocationAPIError) {
