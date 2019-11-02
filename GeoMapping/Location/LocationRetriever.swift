@@ -22,7 +22,8 @@ class LocationRetriever: LocationDataSource {
             .decode(type: LocationsResponse.self, decoder: self.jsonDecoder)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: { (completion) in
-            if case let .failure(error) = completion {
+            
+                if case let .failure(error) = completion {
                 switch error {
                 case let urlError as URLError:
                     promise(.failure(.urlError(urlError)))
