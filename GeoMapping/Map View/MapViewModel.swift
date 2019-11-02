@@ -5,6 +5,7 @@ import Combine
 protocol MapViewModelDelegate: class {
     func createPinsFromAnnotations(_ annotations: [MKPointAnnotation])
     func setCoordinateRegionOnMap(_ coordinateRegion: MKCoordinateRegion)
+    func resetSelectedMapPin()
 }
 
 class MapViewModel {
@@ -37,12 +38,14 @@ class MapViewModel {
     }
     private let imageURLs: [Int: URL?] = LocationImageURLDataStore.urls
     
+    public var selectedAnnotation: MKAnnotation?
     public let detailViewSegueID = Constant.showDetailViewSegue
     
     public func mapViewDidAppear() {
         centerMapAtCLLocation(Constant.initialLocation, with: Constant.initialRegionRadius)
         
         retrieveLocations()
+        delegate?.resetSelectedMapPin()
     }
     
     public func setDetailViewController(_ detailViewController: DetailViewController) {
@@ -53,8 +56,12 @@ class MapViewModel {
         delegate?.setCoordinateRegionOnMap(coordinateRegionFromclLocation(clLocation, with: regionRadius))
     }
     
-    public func setSelectedLocationFromLocationID(_ locationID: String) {
-        self.selectedLocation = locationForPin(id: locationID)
+    public func setSelectedLocationFromLocationID(_ locationTitle: String) {
+        self.selectedLocation = locationForPin(locationTitle: locationTitle)
+    }
+    
+    public func setSelectedAnnotation(_ annnotation: MKAnnotation) {
+        self.selectedAnnotation = annnotation
     }
     
     private func retrieveLocations() {
@@ -73,7 +80,7 @@ class MapViewModel {
     
     private func annotationFromLocation(_ location: Location) -> MKPointAnnotation {
         let annotation = MKPointAnnotation()
-        annotation.title = String(describing: location.id)
+        annotation.title = location.title
         annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         return annotation
     }
@@ -100,9 +107,8 @@ class MapViewModel {
         return imageURLs[locationID] ?? nil
     }
     
-    private func locationForPin(id: String) -> Location? {
-        guard let intID = Int(id) else { return nil }
-        return locations?.first(where: {$0.id == intID})
+    private func locationForPin(locationTitle: String) -> Location? {
+        return locations?.first(where: {$0.title == locationTitle})
     }
     
     private func coordinateRegionFromclLocation(_ clLocation: CLLocation, with regionRadius: CLLocationDistance) -> MKCoordinateRegion {

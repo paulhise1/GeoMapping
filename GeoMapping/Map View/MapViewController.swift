@@ -42,23 +42,13 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-            let pinIdent = "Pin"
-            var pinView: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: pinIdent) as? MKPinAnnotationView {
-                dequeuedView.annotation = annotation
-                pinView = dequeuedView
-            }
-            else {
-                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdent)
-            }
-            return pinView;
-    }
-    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard let annotationTitle = view.annotation?.title else { return }
-        guard let id = annotationTitle else { return }
-        viewModel.setSelectedLocationFromLocationID(id)
+        guard let annotation = view.annotation else { return }
+        guard let annotationTitle = annotation.title else { return }
+        guard let locationTitle = annotationTitle else { return }
+        viewModel.setSelectedLocationFromLocationID(locationTitle)
+        viewModel.setSelectedAnnotation(annotation)
+        
         showDetailView(segueIdentifier: viewModel.detailViewSegueID)
     }
 }
@@ -70,5 +60,10 @@ extension MapViewController: MapViewModelDelegate {
     
     func setCoordinateRegionOnMap(_ coordinateRegion: MKCoordinateRegion) {
         setRegionOnMap(coordinateRegion)
+    }
+    
+    func resetSelectedMapPin() {
+        guard let annotationToDeselect = viewModel.selectedAnnotation else { return }
+        mapView.deselectAnnotation(annotationToDeselect, animated: true)
     }
 }
