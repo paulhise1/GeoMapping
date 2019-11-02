@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
         delegate?.detailViewDidLoad()
     }
     
-    func configure(title: String, message: String, latitude: String, longitude: String, coordinateRegion: MKCoordinateRegion, imageURL: URL?, navigationBarIsHidden: Bool, detailVeiwColor: UIColor) {
+    func configure(title: String, message: String, latitude: String, longitude: String, coordinateRegion: MKCoordinateRegion, imageURL: URL?, navigationBarIsHidden: Bool, detailVeiwColor: UIColor, mapPinAnnotation: MKAnnotation) {
         navigationController?.navigationBar.isHidden = navigationBarIsHidden
         navigationController?.navigationBar.tintColor = detailVeiwColor
         navigationController?.navigationBar.backgroundColor = detailVeiwColor
@@ -34,6 +34,7 @@ class DetailViewController: UIViewController {
         
         detailMapView.setRegion(coordinateRegion, animated: false)
         detailMapView.isUserInteractionEnabled = false
+        detailMapView.addAnnotation(mapPinAnnotation)
         
         guard let imageURL = imageURL else {
             detailImageView.isHidden = true

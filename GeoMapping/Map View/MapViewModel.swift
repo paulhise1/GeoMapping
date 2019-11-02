@@ -71,12 +71,17 @@ class MapViewModel {
             .store(in: &subscriptions)
     }
     
+    private func annotationFromLocation(_ location: Location) -> MKPointAnnotation {
+        let annotation = MKPointAnnotation()
+        annotation.title = String(describing: location.id)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        return annotation
+    }
+    
     private func annotationsFromLocations(_ locations: [Location]) -> [MKPointAnnotation] {
         var annotations = [MKPointAnnotation]()
         for location in locations {
-            let annotation = MKPointAnnotation()
-            annotation.title = String(describing: location.id)
-            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            let annotation = annotationFromLocation(location)
             annotations.append(annotation)
         }
         return annotations
@@ -85,8 +90,10 @@ class MapViewModel {
     private func configureDetailViewWithLocation(_ detailViewController: DetailViewController, _ location: Location) {
         let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         let imageURL = imageURLForLocation(locationID: location.id)
+        let mapPinAnnotation = annotationFromLocation(location)
+        mapPinAnnotation.title = location.title
         
-        detailViewController.configure(title: location.title, message: location.message, latitude: String(describing: location.latitude), longitude: String(describing: location.longitude), coordinateRegion: coordinateRegionFromclLocation(clLocation, with: Constant.detailRegionRadius), imageURL: imageURL, navigationBarIsHidden: false, detailVeiwColor: Constant.detailViewControllerColor)
+        detailViewController.configure(title: location.title, message: location.message, latitude: String(describing: location.latitude), longitude: String(describing: location.longitude), coordinateRegion: coordinateRegionFromclLocation(clLocation, with: Constant.detailRegionRadius), imageURL: imageURL, navigationBarIsHidden: false, detailVeiwColor: Constant.detailViewControllerColor, mapPinAnnotation: mapPinAnnotation)
     }
     
     private func imageURLForLocation(locationID: Int) -> URL? {
